@@ -2,6 +2,7 @@
   "name": "justbind",
   "version": "1.0.0",
   "description": "A small JS library to bind a variable to HTML elements.",
+  "homepage": "https://siniradam.github.io/justbind/",
   "main": "index.js",
   "browser": "./browser.js",
   "repository": {

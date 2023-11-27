@@ -4,95 +4,112 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JustBind</title>
+    <style>
+      html,
+      body,
+      h1 {
+        margin: 0px;
+        padding: 0px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      div {
+        display: flex;
+      }
+    </style>
   </head>
   <body>
-    <h1 id="just-bind">Just Bind</h1>
-    <p>It&#39;s a small js library to bind a variable to HTML elements..</p>
-    <p>
-      Inspired from
-      <a href="https://svelte.dev/docs#run-time-svelte-store">Svelte Store</a>.
-    </p>
-    <p>When it&#39;s called returns an object with four methods.</p>
-    <ul>
-      <li><code>set</code></li>
-      <li><code>get</code></li>
-      <li><code>update</code></li>
-      <li><code>subscribe</code></li>
-    </ul>
-    <pre><code class="lang-js"><span class="hljs-keyword">import</span> justBind <span class="hljs-keyword">from</span> <span class="hljs-string">'justbind'</span>;
+    <div style="color: #fcfcfc; background-color: rgb(13, 17, 23)">
+      <h1 id="just-bind" style="padding: 1rem">Just Bind</h1>
+    </div>
+    <div style="background-color: #f5f5f5; flex-direction: column; padding: 1rem">
+      <p>It&#39;s a small js library to bind a variable to HTML elements..</p>
+      <p>
+        Inspired from
+        <a href="https://svelte.dev/docs#run-time-svelte-store">Svelte Store</a>.
+      </p>
+      <p>When it&#39;s called returns an object with four methods.</p>
+      <ul>
+        <li><code>set</code></li>
+        <li><code>get</code></li>
+        <li><code>update</code></li>
+        <li><code>subscribe</code></li>
+      </ul>
+      <pre><code class="lang-js"><span class="hljs-keyword">import</span> justBind <span class="hljs-keyword">from</span> <span class="hljs-string">'justbind'</span>;
 
 <span class="hljs-keyword">const</span> name = justBind(<span class="hljs-string">'name'</span><span class="hljs-comment">/*, initial value*/</span>);
 </code></pre>
-    <h3 id="set-method">Set Method</h3>
-    <p>This immediately sets the value of <code>name</code> to given value.</p>
-    <pre><code class="lang-js"><span class="hljs-keyword">name</span>.<span class="hljs-keyword">set</span>(<span class="hljs-string">'John'</span>);
+      <h3 id="set-method">Set Method</h3>
+      <p>This immediately sets the value of <code>name</code> to given value.</p>
+      <pre><code class="lang-js"><span class="hljs-keyword">name</span>.<span class="hljs-keyword">set</span>(<span class="hljs-string">'John'</span>);
 </code></pre>
-    <h3 id="get-method">Get Method</h3>
-    <p>This returns the current value of <code>name</code>.</p>
-    <pre><code class="lang-js">name.<span class="hljs-built_in">get</span>(); <span class="hljs-comment">//Returns 'John'</span>
+      <h3 id="get-method">Get Method</h3>
+      <p>This returns the current value of <code>name</code>.</p>
+      <pre><code class="lang-js">name.<span class="hljs-built_in">get</span>(); <span class="hljs-comment">//Returns 'John'</span>
 </code></pre>
-    <h3 id="update-method">Update Method</h3>
-    <p>
-      This is used to update the value of <code>name</code>, it accepts a function that
-      returns the new value. Current value is passed to the function.
-    </p>
-    <pre><code class="lang-js">name.<span class="hljs-keyword">update</span>(<span class="hljs-keyword">value</span> =&gt; <span class="hljs-keyword">value</span> + <span class="hljs-string">' Doe'</span>);
+      <h3 id="update-method">Update Method</h3>
+      <p>
+        This is used to update the value of <code>name</code>, it accepts a function that
+        returns the new value. Current value is passed to the function.
+      </p>
+      <pre><code class="lang-js">name.<span class="hljs-keyword">update</span>(<span class="hljs-keyword">value</span> =&gt; <span class="hljs-keyword">value</span> + <span class="hljs-string">' Doe'</span>);
 </code></pre>
-    <h3 id="subscribe-method">Subscribe Method</h3>
-    <p>
-      This accepts a callback function that is called whenever the value of
-      <code>name</code> changes. Either by calling <code>set</code> or
-      <code>update</code> methods or via assigned inputs.
-    </p>
-    <pre><code class="lang-js"><span class="hljs-built_in">name</span>.subscribe(value =&gt; console.<span class="hljs-built_in">log</span>(value));
+      <h3 id="subscribe-method">Subscribe Method</h3>
+      <p>
+        This accepts a callback function that is called whenever the value of
+        <code>name</code> changes. Either by calling <code>set</code> or
+        <code>update</code> methods or via assigned inputs.
+      </p>
+      <pre><code class="lang-js"><span class="hljs-built_in">name</span>.subscribe(value =&gt; console.<span class="hljs-built_in">log</span>(value));
 
 <span class="hljs-built_in">name</span>.<span class="hljs-built_in">set</span>(<span class="hljs-string">'John'</span>);
 
 <span class="hljs-comment">// Console prints output:</span>
 <span class="hljs-comment">// John</span>
 </code></pre>
-    <h3 id="bind-value-to-html-elements">Bind Value to HTML Elements</h3>
-    <p>
-      You can bind the value of <code>name</code> to HTML elements. Whenever the value of
-      <code>name</code> changes, the value of the HTML element will be updated or if
-      it&#39;s an input, the value of the input will be updated.
-    </p>
-    <p>
-      Values also will be updated when the content of the HTML element is changed, like if
-      you type something in the input.
-    </p>
-    <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+      <h3 id="bind-value-to-html-elements">Bind Value to HTML Elements</h3>
+      <p>
+        You can bind the value of <code>name</code> to HTML elements. Whenever the value
+        of <code>name</code> changes, the value of the HTML element will be updated or if
+        it&#39;s an input, the value of the input will be updated.
+      </p>
+      <p>
+        Values also will be updated when the content of the HTML element is changed, like
+        if you type something in the input.
+      </p>
+      <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
     <span class="hljs-keyword">const</span> name = justBind(<span class="hljs-string">'name'</span>,<span class="hljs-string">"John"</span>);
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">bind</span>=<span class="hljs-string">"name"</span>&gt;</span>
 </code></pre>
-    <h2 id="things-to-consider-before-use-">Things to consider before use/</h2>
-    <ul>
-      <li>Custom attributes works but they aren&#39;t valid W3C standards.</li>
-      <li>
-        Event though they work, that doesn&#39;t mean you may not encounter with any
-        problems.
-      </li>
-      <li>
-        One option is you can use something like DTD - Attributes, or avoid this library
-        all together.
-      </li>
-      <li>Probably there are better ways to achieve this.</li>
-    </ul>
-    <h2 id="what-is-next-">What is next?</h2>
-    <ul>
-      <li>
-        I can consider change bind= attribute to data-bind= attribute. This would make it
-        more W3C compliant.
-      </li>
-      <li>
-        Stores can be initiated with persist option, either with localStorage or
-        sessionStorage.
-      </li>
-    </ul>
-    <h2 id="license">License</h2>
-    <p>MIT License</p>
-    <p>2023 <a href="https://github.com/siniradam">@Siniradam</a></p>
+      <h2 id="things-to-consider-before-use-">Things to consider before use/</h2>
+      <ul>
+        <li>Custom attributes works but they aren&#39;t valid W3C standards.</li>
+        <li>
+          Event though they work, that doesn&#39;t mean you may not encounter with any
+          problems.
+        </li>
+        <li>
+          One option is you can use something like DTD - Attributes, or avoid this library
+          all together.
+        </li>
+        <li>Probably there are better ways to achieve this.</li>
+      </ul>
+      <h2 id="what-is-next-">What is next?</h2>
+      <ul>
+        <li>
+          I can consider change bind= attribute to data-bind= attribute. This would make
+          it more W3C compliant.
+        </li>
+        <li>
+          Stores can be initiated with persist option, either with localStorage or
+          sessionStorage.
+        </li>
+      </ul>
+      <h2 id="license">License</h2>
+      <p>MIT License</p>
+      <p>2023 <a href="https://github.com/siniradam">@Siniradam</a></p>
+    </div>
   </body>
 </html>
