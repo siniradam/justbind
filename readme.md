@@ -73,10 +73,11 @@ Values also will be updated when the content of the HTML element is changed, lik
 - Probably there are better ways to achieve this.
 
 
-## What is next?
-- I can consider change bind= attribute to data-bind= attribute. This would make it more W3C compliant.
+## What is next? (Probably)
 - Stores can be initiated with persist option, either with localStorage or sessionStorage.
-
+- I can consider changing `bind=` attribute to `data-bind=` attribute. To make it W3C compliant.
+- `Bind` method: for binding to HTML Elements via function.
+- Web Components? Maybe a custom component can be placed.
 
 
 ## License

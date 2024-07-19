@@ -1,5 +1,6 @@
-const typedefs = require("./typedefs");
-
+if (typeof require !== "undefined") {
+  const typedefs = require("./typedefs");
+}
 /**
  * Internal helper function that checks if the document is ready.
  * @param {*} fn
@@ -102,5 +103,7 @@ function justBind(name, value) {
   return methods;
 }
 
-exports.onReady = onReady;
-exports.justBind = justBind;
+if (typeof exports !== "undefined") {
+  exports.onReady = onReady;
+  exports.justBind = justBind;
+}
